@@ -22,7 +22,21 @@ namespace Vuforia.EditorClasses
 				return ConfigParser.mInstance;
 			}
 		}
-
+		
+		internal static uint ComputeStringHash(string s)
+        	{
+			uint num = 0;
+            		if (s != null)
+            		{
+                		num = 0x811c9dc5;
+                		for (int i = 0; i < s.Length; i++)
+                		{
+                    			num = (s[i] ^ num) * 0x1000193;
+                		}
+            		}
+            		return num;
+        	}
+		
 		public bool fileToStruct(string configXMLPath, string authoringInfoXMLPath, ConfigData configData)
 		{
             Debug.LogWarning("Load configXML at : " + configXMLPath);
@@ -50,9 +64,9 @@ namespace Vuforia.EditorClasses
 					if (xmlTextReader.NodeType == XmlNodeType.Element)
 					{
 						string name = xmlTextReader.Name;
-                        //// 下面这一行未知
-                        //uint num = <PrivateImplementationDetails>.ComputeStringHash(name);
-                        UnityEngine.Debug.LogError("反编译没有完成这部分的破解！！！");
+                        
+                        uint num = ComputeStringHash(name);
+			
                         uint num = 0;
 						if (num <= 2826972859u)
 						{
