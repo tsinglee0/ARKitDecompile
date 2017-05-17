@@ -39,9 +39,6 @@ namespace Vuforia.EditorClasses
 		
 		public bool fileToStruct(string configXMLPath, string authoringInfoXMLPath, ConfigData configData)
 		{
-            Debug.LogWarning("Load configXML at : " + configXMLPath);
-
-
 			if (!File.Exists(configXMLPath))
 			{
 				return false;
