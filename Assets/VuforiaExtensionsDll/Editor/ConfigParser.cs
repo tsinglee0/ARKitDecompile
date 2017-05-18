@@ -60,11 +60,9 @@ namespace Vuforia.EditorClasses
 				{
 					if (xmlTextReader.NodeType == XmlNodeType.Element)
 					{
-						string name = xmlTextReader.Name;
-                        
-                        uint num = ComputeStringHash(name);
-			
-                        uint num = 0;
+						string name = xmlTextReader.Name;                        
+                        			uint num = ComputeStringHash(name);
+						
 						if (num <= 2826972859u)
 						{
 							if (num != 1357157938u)
